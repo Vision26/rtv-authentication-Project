@@ -14,7 +14,9 @@ mongoose.connect('mongodb://localhost:27017/rtv',
 () => console.log("Data Base Connected.")
 )
 
-app.use('/rtv', expressjwt({ secret: process.env.SECRET, algorithms: ['HS256'] }))
+app.use('/auth', require('./routes/authRoute.js'))
+app.use('/politicviews', expressjwt({ secret: process.env.SECRET, algorithms: ['HS256'] }))
+app.use('/politicviews/topics', require('./routes/topicsRoute.js'))
 
 app.use((err, req, res, next) => {
     console.log(err)
