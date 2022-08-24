@@ -17,6 +17,11 @@ user:{
     type: Schema.Types.ObjectId,
     ref: "User",
     required: true
+},
+comments:{
+    type: Schema.Types.ObjectId,
+    ref: "Comments",
+    required: true
 }
 })
 
